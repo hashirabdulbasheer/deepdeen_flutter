@@ -5,9 +5,9 @@ import '../../views/widgets/app_bar_widget.dart';
 
 class DeepDeenVideoPlayerScreen extends StatefulWidget {
   static const routeName = '/player';
+
   @override
-  _DeepDeenVideoPlayerScreenState createState() =>
-      _DeepDeenVideoPlayerScreenState();
+  _DeepDeenVideoPlayerScreenState createState() => _DeepDeenVideoPlayerScreenState();
 }
 
 class _DeepDeenVideoPlayerScreenState extends State<DeepDeenVideoPlayerScreen> {
@@ -34,9 +34,7 @@ class _DeepDeenVideoPlayerScreenState extends State<DeepDeenVideoPlayerScreen> {
                 children: <Widget>[
                   _getVideoPlayer(),
                   if (_isLoading)
-                    Container(
-                        height: 300,
-                        child: Center(child: CircularProgressIndicator()))
+                    Container(height: 300, child: Center(child: CircularProgressIndicator()))
                   else
                     Container(height: 300)
                 ],
@@ -73,8 +71,7 @@ class _DeepDeenVideoPlayerScreenState extends State<DeepDeenVideoPlayerScreen> {
           SizedBox(height: 20),
           Image.asset("assets/images/surahmulk.png"),
           SizedBox(height: 10),
-          Text("Surah Mulk-Part4",
-              style: TextStyle(color: Colors.white, fontSize: 16))
+          Text("Surah Mulk-Part4", style: TextStyle(color: Colors.white, fontSize: 16))
         ],
       ),
     );
@@ -93,8 +90,7 @@ class _DeepDeenVideoPlayerScreenState extends State<DeepDeenVideoPlayerScreen> {
           SizedBox(height: 10),
           Text(
             "Surah Mulk-Part3",
-            style: TextStyle(
-                color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
+            style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
           ),
           SizedBox(height: 10),
           Text(
@@ -126,22 +122,18 @@ class _DeepDeenVideoPlayerScreenState extends State<DeepDeenVideoPlayerScreen> {
                 });
               },
               onLoadStart: (InAppWebViewController controller, String url) {},
-              onLoadStop:
-                  (InAppWebViewController controller, String url) async {
+              onLoadStop: (InAppWebViewController controller, String url) async {
                 setState(() {
                   _isLoading = false;
                 });
               },
               onEnterFullscreen: (InAppWebViewController controller) {
-                SystemChrome.setPreferredOrientations(
-                    [DeviceOrientation.landscapeRight]);
+                SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeRight]);
               },
               onExitFullscreen: (InAppWebViewController controller) {
-                SystemChrome.setPreferredOrientations(
-                    [DeviceOrientation.portraitUp]);
+                SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
               },
-              onProgressChanged:
-                  (InAppWebViewController controller, int progress) {},
+              onProgressChanged: (InAppWebViewController controller, int progress) {},
             ),
           ),
         ),

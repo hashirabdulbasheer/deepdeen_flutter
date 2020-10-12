@@ -1,20 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:sampeapp/business_logic/misc/constants.dart';
+import '../../business_logic/misc/constants.dart';
 import '../../business_logic/models/video.dart';
 
 class DeepDeenVideoRowWidget extends StatelessWidget {
   final String title;
   final Future<List<DeepDeenVideo>> videoFetcher;
 
-  const DeepDeenVideoRowWidget({Key key, this.title, this.videoFetcher})
-      : super(key: key);
+  const DeepDeenVideoRowWidget({Key key, this.title, this.videoFetcher}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<List<DeepDeenVideo>>(
         future: videoFetcher,
-        builder: (BuildContext context,
-            AsyncSnapshot<List<DeepDeenVideo>> snapshot) {
+        builder: (BuildContext context, AsyncSnapshot<List<DeepDeenVideo>> snapshot) {
           if (snapshot.hasData) {
             List<DeepDeenVideo> videoList = snapshot.data;
             return Padding(
@@ -24,8 +22,7 @@ class DeepDeenVideoRowWidget extends StatelessWidget {
                 children: <Widget>[
                   Padding(
                       padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
-                      child: Text("$title",
-                          style: Theme.of(context).textTheme.subtitle1)),
+                      child: Text("$title", style: Theme.of(context).textTheme.subtitle1)),
                   Row(
                     children: <Widget>[
                       Expanded(
@@ -46,23 +43,18 @@ class DeepDeenVideoRowWidget extends StatelessWidget {
                                   child: Container(
                                     height: 200,
                                     child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      mainAxisAlignment: MainAxisAlignment.start,
                                       children: <Widget>[
                                         Hero(
                                           tag: "${title}_video$index",
-                                          child: Image.asset(
-                                              "assets/images/${videoList[index].thumbnail}",
+                                          child: Image.asset("assets/images/${videoList[index].thumbnail}",
                                               height: 120),
                                         ),
                                         SizedBox(height: 10),
                                         Text("${videoList[index].title}",
                                             overflow: TextOverflow.ellipsis,
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .bodyText1)
+                                            style: Theme.of(context).textTheme.bodyText1)
                                       ],
                                     ),
                                   ),

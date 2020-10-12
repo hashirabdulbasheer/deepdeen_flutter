@@ -12,28 +12,23 @@ class ServerCommunications {
       "[{\"thumbnail\":\"pillars.jpg\",\"title\":\"Pillars of Islam\",\"subtitle\":\"5 seasons\",\"url\":\"\"},{\"thumbnail\":\"lives.jpg\",\"title\":\"Lives of Khulafa Al Rashidoon\",\"subtitle\":\"4 seasons\",\"url\":\"\"},{\"thumbnail\":\"stress.jpg\",\"title\":\"Stress and Anger Management\",\"subtitle\":\"1 season\",\"url\":\"\"},{\"thumbnail\":\"quran.jpg\",\"title\":\"Exploring the Pearls of The Qur'an\",\"subtitle\":\"1 season\",\"url\":\"\"},{\"thumbnail\":\"females.jpg\",\"title\":\"History of Female Scholars\",\"subtitle\":\"7 seasons\",\"url\":\"\"}]";
 
   static Future<List<DeepDeenVideo>> getRecentVideos() async {
-    return Future.delayed(Duration(milliseconds: 100))
-        .then((onValue) => myVideoFromJson(_recentVideos));
+    return Future.delayed(Duration(milliseconds: 100)).then((onValue) => myVideoFromJson(_recentVideos));
   }
 
   static Future<List<DeepDeenVideo>> getQnaVideos() {
-    return Future.delayed(Duration(milliseconds: 100))
-        .then((onValue) => myVideoFromJson(_qnaVideos));
+    return Future.delayed(Duration(milliseconds: 100)).then((onValue) => myVideoFromJson(_qnaVideos));
   }
 
   static Future<List<DeepDeenVideo>> getQuranVideos() {
-    return Future.delayed(Duration(milliseconds: 100))
-        .then((onValue) => myVideoFromJson(_quranVideos));
+    return Future.delayed(Duration(milliseconds: 100)).then((onValue) => myVideoFromJson(_quranVideos));
   }
 
   static Future<List<DeepDeenVideo>> getHomeBannerVideos() async {
-    return Future.delayed(Duration(milliseconds: 100))
-        .then((onValue) => myVideoFromJson(_homeBannerVideos));
+    return Future.delayed(Duration(milliseconds: 100)).then((onValue) => myVideoFromJson(_homeBannerVideos));
   }
 
   static Future<DeepDeenUser> login(String email, String password) async {
     return Future.delayed(Duration(milliseconds: 5000))
         .then((onValue) => DeepDeenUser(email: email, password: password));
   }
-
 }

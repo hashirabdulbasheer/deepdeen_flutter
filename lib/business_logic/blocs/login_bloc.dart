@@ -4,10 +4,7 @@ import 'dart:async';
 import 'validators.dart';
 import 'base_bloc.dart';
 
-class DeepDeenLoginBloc extends Object
-                        with DeepDeenBlocValidators
-                        implements DeepDeenBaseBloc {
-
+class DeepDeenLoginBloc extends Object with DeepDeenBlocValidators implements DeepDeenBaseBloc {
   final DeepDeenLoginState _loginState = DeepDeenLoginState();
 
   /// input text field controller
@@ -18,7 +15,6 @@ class DeepDeenLoginBloc extends Object
 
   /// enable/disable the submit button
   final _submitController = BehaviorSubject<bool>();
-
 
   Stream<String> get textFieldStream =>
       _textFieldController.stream.transform(isPasswordMode() ? passwordValidator : emailValidator);
@@ -62,21 +58,21 @@ class DeepDeenLoginBloc extends Object
   isValid() => _loginState.isValid();
 
   _handleSubmitButton() {
-     if(isPasswordMode()) {
-       // Password mode : Enable button if valid password
-       if(_loginState.password != null) {
-         _submitController.add(true);
-       } else {
-         _submitController.add(false);
-       }
-     } else {
-        // Email mode : Enable button if valid email
-        if(_loginState.email != null) {
-          _submitController.add(true);
-        } else {
-          _submitController.add(false);
-        }
-     }
+    if (isPasswordMode()) {
+      // Password mode : Enable button if valid password
+      if (_loginState.password != null) {
+        _submitController.add(true);
+      } else {
+        _submitController.add(false);
+      }
+    } else {
+      // Email mode : Enable button if valid email
+      if (_loginState.email != null) {
+        _submitController.add(true);
+      } else {
+        _submitController.add(false);
+      }
+    }
   }
 
   @override

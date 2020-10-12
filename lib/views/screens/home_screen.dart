@@ -10,6 +10,7 @@ import '../../views/widgets/app_bar_widget.dart';
 //////////////////////////////////////////////////////
 class DeepDeenHomeScreen extends StatelessWidget {
   static const routeName = '/';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,7 +20,6 @@ class DeepDeenHomeScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
-
             Stack(
               alignment: Alignment.topCenter,
               children: <Widget>[
@@ -28,12 +28,8 @@ class DeepDeenHomeScreen extends StatelessWidget {
                       return LinearGradient(
                         begin: Alignment.topCenter,
                         end: Alignment.bottomCenter,
-                        colors: [
-                          Theme.of(context).primaryColor,
-                          Colors.transparent
-                        ],
-                      ).createShader(
-                          Rect.fromLTRB(0, 0, rect.width, rect.height));
+                        colors: [Theme.of(context).primaryColor, Colors.transparent],
+                      ).createShader(Rect.fromLTRB(0, 0, rect.width, rect.height));
                     },
                     blendMode: BlendMode.dstIn,
                     child: Container(
@@ -44,8 +40,7 @@ class DeepDeenHomeScreen extends StatelessWidget {
                         image: new DecorationImage(
                             fit: BoxFit.cover,
                             colorFilter: new ColorFilter.mode(
-                                Theme.of(context).primaryColor.withOpacity(0.7),
-                                BlendMode.dstATop),
+                                Theme.of(context).primaryColor.withOpacity(0.7), BlendMode.dstATop),
                             image: AssetImage("assets/images/home.jpg")),
                       ),
                     )),

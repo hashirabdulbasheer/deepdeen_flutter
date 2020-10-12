@@ -74,12 +74,12 @@ class FlipCard extends StatefulWidget {
 
   const FlipCard(
       {Key key,
-        @required this.child,
-        this.speed = 500,
-        this.onFlip,
-        this.onFlipDone,
-        this.direction = FlipDirection.HORIZONTAL,
-        this.flipOnTouch = true})
+      @required this.child,
+      this.speed = 500,
+      this.onFlip,
+      this.onFlipDone,
+      this.direction = FlipDirection.HORIZONTAL,
+      this.flipOnTouch = true})
       : super(key: key);
 
   @override
@@ -88,8 +88,7 @@ class FlipCard extends StatefulWidget {
   }
 }
 
-class FlipCardState extends State<FlipCard>
-    with SingleTickerProviderStateMixin {
+class FlipCardState extends State<FlipCard> with SingleTickerProviderStateMixin {
   AnimationController controller;
   Animation<double> _frontRotation;
   Animation<double> _backRotation;
@@ -99,13 +98,11 @@ class FlipCardState extends State<FlipCard>
   @override
   void initState() {
     super.initState();
-    controller = AnimationController(
-        duration: Duration(milliseconds: widget.speed), vsync: this);
+    controller = AnimationController(duration: Duration(milliseconds: widget.speed), vsync: this);
     _frontRotation = TweenSequence(
       <TweenSequenceItem<double>>[
         TweenSequenceItem<double>(
-          tween: Tween(begin: 0.0, end: -pi / 2)
-              .chain(CurveTween(curve: Curves.easeIn)),
+          tween: Tween(begin: 0.0, end: -pi / 2).chain(CurveTween(curve: Curves.easeIn)),
           weight: 50.0,
         ),
         TweenSequenceItem<double>(
@@ -121,15 +118,13 @@ class FlipCardState extends State<FlipCard>
           weight: 50.0,
         ),
         TweenSequenceItem<double>(
-          tween: Tween(begin: pi / 2, end: 0.0)
-              .chain(CurveTween(curve: Curves.easeOut)),
+          tween: Tween(begin: pi / 2, end: 0.0).chain(CurveTween(curve: Curves.easeOut)),
           weight: 50.0,
         ),
       ],
     ).animate(controller);
     controller.addStatusListener((status) {
-      if (status == AnimationStatus.completed ||
-          status == AnimationStatus.dismissed) {
+      if (status == AnimationStatus.completed || status == AnimationStatus.dismissed) {
         if (widget.onFlipDone != null) widget.onFlipDone(isFront);
       }
     });

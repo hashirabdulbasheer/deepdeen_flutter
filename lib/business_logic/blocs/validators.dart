@@ -5,9 +5,7 @@ import 'package:sampeapp/business_logic/misc/strings.dart';
 import 'package:sampeapp/business_logic/misc/utils.dart';
 
 mixin DeepDeenBlocValidators {
-
-  var emailValidator =
-      StreamTransformer<String, String>.fromHandlers(handleData: (email, sink) {
+  var emailValidator = StreamTransformer<String, String>.fromHandlers(handleData: (email, sink) {
     if (DeepDeenUtils.isEmail(email)) {
       sink.add(email);
     } else {
@@ -15,8 +13,7 @@ mixin DeepDeenBlocValidators {
     }
   });
 
-  var passwordValidator = StreamTransformer<String, String>.fromHandlers(
-      handleData: (password, sink) {
+  var passwordValidator = StreamTransformer<String, String>.fromHandlers(handleData: (password, sink) {
     if (password.length > DeepDeenConstants.PASSWORD_MIN_LENGTH) {
       sink.add(password);
     } else {

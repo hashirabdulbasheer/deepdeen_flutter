@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
-import 'package:sampeapp/business_logic/misc/constants.dart';
+import '../../business_logic/misc/constants.dart';
 import '../../business_logic/services/network_services.dart';
 import '../../business_logic/models/video.dart';
 
@@ -9,9 +9,7 @@ class DeepDeenDashboardSwiperWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return FutureBuilder<List<DeepDeenVideo>>(
         future: ServerCommunications.getHomeBannerVideos(),
-        builder: (BuildContext context,
-            AsyncSnapshot<List<DeepDeenVideo>> snapshot) {
-
+        builder: (BuildContext context, AsyncSnapshot<List<DeepDeenVideo>> snapshot) {
           if (snapshot.hasData) {
             List<DeepDeenVideo> videoList = snapshot.data;
             return Container(
@@ -29,12 +27,10 @@ class DeepDeenDashboardSwiperWidget extends StatelessWidget {
                             begin: Alignment.topCenter,
                             end: Alignment.bottomCenter,
                             colors: [Colors.black, Colors.transparent],
-                          ).createShader(
-                              Rect.fromLTRB(0, 0, rect.width, rect.height));
+                          ).createShader(Rect.fromLTRB(0, 0, rect.width, rect.height));
                         },
                         blendMode: BlendMode.dstIn,
-                        child: Image.asset(
-                            "assets/images/${videoList[index].thumbnail}"),
+                        child: Image.asset("assets/images/${videoList[index].thumbnail}"),
                       ),
                       Padding(
                         padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
@@ -56,20 +52,16 @@ class DeepDeenDashboardSwiperWidget extends StatelessWidget {
                 },
                 autoplay: true,
                 itemCount: videoList.length,
-                pagination: SwiperCustomPagination(
-                    builder: (BuildContext context, SwiperPluginConfig config) {
+                pagination:
+                    SwiperCustomPagination(builder: (BuildContext context, SwiperPluginConfig config) {
                   return Align(
                     alignment: Alignment.bottomCenter,
                     child: DotSwiperPaginationBuilder(
-                            color: Colors.grey,
-                            activeColor: Colors.white,
-                            size: 5.0,
-                            activeSize: 8.0)
+                            color: Colors.grey, activeColor: Colors.white, size: 5.0, activeSize: 8.0)
                         .build(context, config),
                   );
                 }),
-                control: new SwiperControl(
-                    color: Colors.white, disableColor: Colors.grey),
+                control: new SwiperControl(color: Colors.white, disableColor: Colors.grey),
               ),
             );
           }

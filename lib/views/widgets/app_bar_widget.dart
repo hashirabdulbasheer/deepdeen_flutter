@@ -7,7 +7,6 @@ import '../../business_logic/misc/constants.dart';
 ///
 //////////////////////////////////////////////////////
 class DeepDeenAppBarWidget extends StatelessWidget implements PreferredSizeWidget {
-
   const DeepDeenAppBarWidget({
     Key key,
   }) : super(key: key);
@@ -38,6 +37,5 @@ class DeepDeenAppBarWidget extends StatelessWidget implements PreferredSizeWidge
   }
 
   @override
-  Size get preferredSize =>
-      new Size.fromHeight(DeepDeenConstants.APPBAR_HEIGHT);
+  Size get preferredSize => new Size.fromHeight(DeepDeenConstants.APPBAR_HEIGHT);
 }

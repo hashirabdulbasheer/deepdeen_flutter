@@ -47,16 +47,13 @@ class _DeepDeenLoginScreenState extends State<DeepDeenLoginScreen> {
             child: Container(
               decoration: BoxDecoration(
                   image: const DecorationImage(
-                      fit: BoxFit.fitHeight,
-                      image: AssetImage("assets/images/home.jpg"))),
+                      fit: BoxFit.fitHeight, image: AssetImage("assets/images/home.jpg"))),
               child: Container(
-                decoration: BoxDecoration(
-                    color: DeepDeenColors.DARK_BLUE.withOpacity(0.5)),
+                decoration: BoxDecoration(color: DeepDeenColors.DARK_BLUE.withOpacity(0.5)),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-
                     FlipCard(
                       direction: FlipDirection.HORIZONTAL,
                       speed: 1000,
@@ -78,18 +75,14 @@ class _DeepDeenLoginScreenState extends State<DeepDeenLoginScreen> {
                                       SizedBox(height: 30),
                                       Text(
                                         "${DeepDeenStrings.getString("app_name")}",
-                                        style: TextStyle(
-                                            color:
-                                                Theme.of(context).accentColor,
-                                            fontSize: 25),
+                                        style: TextStyle(color: Theme.of(context).accentColor, fontSize: 25),
                                       ),
 
                                       /// Sign in - Title
                                       SizedBox(height: 10),
                                       Text(
                                         "${DeepDeenStrings.getString("login_popup_title")}",
-                                        style: TextStyle(
-                                            color: Colors.black, fontSize: 18),
+                                        style: TextStyle(color: Colors.black, fontSize: 18),
                                       ),
 
                                       /// Textfield entry
@@ -97,37 +90,24 @@ class _DeepDeenLoginScreenState extends State<DeepDeenLoginScreen> {
                                       StreamBuilder<String>(
                                         stream: _bloc.textFieldStream,
                                         builder: (context, snapshot) => Padding(
-                                          padding: const EdgeInsets.fromLTRB(
-                                              20, 5, 20, 5),
+                                          padding: const EdgeInsets.fromLTRB(20, 5, 20, 5),
                                           child: Container(
                                             height: 100,
                                             child: TextField(
-                                              controller:
-                                                  _textEditingController,
+                                              controller: _textEditingController,
                                               onChanged: _bloc.textFieldChanged,
-                                              style: TextStyle(
-                                                  color: Colors.black,
-                                                  fontSize: 16),
+                                              style: TextStyle(color: Colors.black, fontSize: 16),
                                               autofocus: true,
                                               maxLength: 100,
-                                              obscureText:
-                                                  _bloc.isPasswordMode(),
+                                              obscureText: _bloc.isPasswordMode(),
                                               decoration: new InputDecoration(
-                                                  border:
-                                                      new OutlineInputBorder(
-                                                          borderSide:
-                                                              new BorderSide(
-                                                                  color: Colors
-                                                                      .black)),
+                                                  border: new OutlineInputBorder(
+                                                      borderSide: new BorderSide(color: Colors.black)),
                                                   hintText: _getTextFieldHint(),
-                                                  hintStyle: TextStyle(
-                                                      color: Colors.grey),
-                                                  labelStyle: TextStyle(
-                                                      color: Colors.grey),
-                                                  labelText:
-                                                      _getTextFieldLabel(),
-                                                  prefixIcon:
-                                                      _getTextFieldIcon(),
+                                                  hintStyle: TextStyle(color: Colors.grey),
+                                                  labelStyle: TextStyle(color: Colors.grey),
+                                                  labelText: _getTextFieldLabel(),
+                                                  prefixIcon: _getTextFieldIcon(),
                                                   errorText: snapshot.error,
                                                   prefixText: ' '),
                                             ),
@@ -139,27 +119,20 @@ class _DeepDeenLoginScreenState extends State<DeepDeenLoginScreen> {
                                       StreamBuilder<bool>(
                                         stream: _bloc.submitStream,
                                         builder: (context, snapshot) => Padding(
-                                          padding: const EdgeInsets.fromLTRB(
-                                              20, 10, 20, 10),
+                                          padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
                                           child: SizedBox(
-                                            width: MediaQuery.of(context)
-                                                .size
-                                                .width,
+                                            width: MediaQuery.of(context).size.width,
                                             height: 50,
                                             child: RaisedButton(
-                                              color:
-                                                  Theme.of(context).accentColor,
-                                              disabledColor:
-                                                  Theme.of(context).accentColor,
+                                              color: Theme.of(context).accentColor,
+                                              disabledColor: Theme.of(context).accentColor,
                                               disabledElevation: 0,
                                               elevation: 2,
                                               child: Text(
                                                 _getSubmitButtonTitle(),
                                                 style: TextStyle(fontSize: 18),
                                               ),
-                                              onPressed: snapshot.data == true
-                                                  ? _onSubmitTapped
-                                                  : null,
+                                              onPressed: snapshot.data == true ? _onSubmitTapped : null,
                                             ),
                                           ),
                                         ),
@@ -167,8 +140,7 @@ class _DeepDeenLoginScreenState extends State<DeepDeenLoginScreen> {
 
                                       /// Help button
                                       Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.end,
+                                        mainAxisAlignment: MainAxisAlignment.end,
                                         children: <Widget>[
                                           Padding(
                                             padding: const EdgeInsets.all(8.0),
@@ -176,12 +148,9 @@ class _DeepDeenLoginScreenState extends State<DeepDeenLoginScreen> {
                                                 onPressed: () {
                                                   _onHelpTapped();
                                                 },
-                                                child: Text(
-                                                    "${DeepDeenStrings.getString("login_help_text")}",
+                                                child: Text("${DeepDeenStrings.getString("login_help_text")}",
                                                     style: TextStyle(
-                                                        color: Theme.of(context)
-                                                            .accentColor,
-                                                        fontSize: 15))),
+                                                        color: Theme.of(context).accentColor, fontSize: 15))),
                                           ),
                                         ],
                                       ),
@@ -196,20 +165,16 @@ class _DeepDeenLoginScreenState extends State<DeepDeenLoginScreen> {
                           StreamBuilder<bool>(
                             stream: _bloc.loadingStream,
                             builder: (context, snapshot) {
-                              if (snapshot.data == null ||
-                                  snapshot.data == false) return Container();
+                              if (snapshot.data == null || snapshot.data == false) return Container();
                               return Center(
                                 child: Padding(
-                                  padding:
-                                      const EdgeInsets.fromLTRB(20, 20, 20, 10),
+                                  padding: const EdgeInsets.fromLTRB(20, 20, 20, 10),
                                   child: Container(
                                     color: Colors.white.withOpacity(0.8),
                                     height: 350,
                                     child: Center(
                                       child: CircularProgressIndicator(
-                                        valueColor:
-                                            new AlwaysStoppedAnimation<Color>(
-                                                Colors.orange),
+                                        valueColor: new AlwaysStoppedAnimation<Color>(Colors.orange),
                                       ),
                                     ),
                                   ),
@@ -226,7 +191,6 @@ class _DeepDeenLoginScreenState extends State<DeepDeenLoginScreen> {
                         _bloc.hideProgress();
                       },
                     ),
-
                   ],
                 ),
               ),

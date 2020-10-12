@@ -2,7 +2,6 @@ import '../../business_logic/misc/constants.dart';
 import '../../business_logic/misc/utils.dart';
 
 class DeepDeenLoginState {
-
   String _email, _password;
 
   String get email => _email;
@@ -18,7 +17,7 @@ class DeepDeenLoginState {
   String get password => _password;
 
   set password(String password) {
-    if(password != null && password.length > DeepDeenConstants.PASSWORD_MIN_LENGTH) {
+    if (password != null && password.length > DeepDeenConstants.PASSWORD_MIN_LENGTH) {
       _password = password;
     } else {
       _password = null;
@@ -29,8 +28,8 @@ class DeepDeenLoginState {
 
   /// Validate the format of email address and password
   isValid() {
-    if(_email == null) return false;
-    if(_password == null) return false;
+    if (_email == null) return false;
+    if (_password == null) return false;
     if (_email.isEmpty || _password.isEmpty) {
       return false;
     }

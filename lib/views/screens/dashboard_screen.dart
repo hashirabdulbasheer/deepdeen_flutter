@@ -20,16 +20,11 @@ class DeepDeenDashboardScreen extends StatelessWidget {
           children: <Widget>[
             DeepDeenDashboardSwiperWidget(),
             DeepDeenVideoRowWidget(
-                title: "Continue Watching",
-                videoFetcher: ServerCommunications.getRecentVideos()),
+                title: "Continue Watching", videoFetcher: ServerCommunications.getRecentVideos()),
             Divider(color: Colors.grey),
-            DeepDeenVideoRowWidget(
-                title: "QnA",
-                videoFetcher: ServerCommunications.getQnaVideos()),
+            DeepDeenVideoRowWidget(title: "QnA", videoFetcher: ServerCommunications.getQnaVideos()),
             Divider(color: Colors.grey),
-            DeepDeenVideoRowWidget(
-                title: "Quran",
-                videoFetcher: ServerCommunications.getQuranVideos()),
+            DeepDeenVideoRowWidget(title: "Quran", videoFetcher: ServerCommunications.getQuranVideos()),
           ],
         ),
       ),

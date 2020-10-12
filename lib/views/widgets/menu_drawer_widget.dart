@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sampeapp/business_logic/misc/colors.dart';
+import '../../business_logic/misc/colors.dart';
 
 class DeepDeenMenuDrawer extends StatelessWidget {
   @override

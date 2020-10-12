@@ -1,5 +1,6 @@
 class DeepDeenStrings {
   static String getString(String key) => englishStrings[key];
+
   static String getErrorString(String key) => errorStrings[key];
 
   static final Map<String, String> errorStrings = {

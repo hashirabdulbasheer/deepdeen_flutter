@@ -1,5 +1,4 @@
 class DeepDeenUtils {
-
   static bool isEmail(String em) {
     if (em == null) return false;
     String p =
@@ -7,5 +6,4 @@ class DeepDeenUtils {
     RegExp regExp = new RegExp(p);
     return regExp.hasMatch(em);
   }
-
 }
